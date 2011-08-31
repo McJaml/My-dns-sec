@@ -1,0 +1,99 @@
+
+#include "proxy_server.h"
+
+int main(void) {
+	char *lenstr;
+	char input[MAXINPUT], out[MAXINPUT];
+	char *response = input;
+	char *data = input;
+	char *query = out;
+	char clientID[MyDNSSEC_CLIENT_ID_64_LEN];
+	size_t len, outlen = sizeof(out), reslen = sizeof(input), index = 0, datalen = 0;
+	bool retstatus = false;
+	uint8_t saltLen;
+	unsigned char aesKey[MyDNSSEC_AES_KEY_LEN], aesCbcIv[MyDNSSEC_AES_KEY_LEN];
+	unsigned char *decrypted, *encrypted;
+	unsigned long length;
+
+	printf( "%s%c%c", "Content-Type:text/plain;charset=US-ASCII\n", 13, 10 );
+	lenstr = getenv("CONTENT_LENGTH");
+	if( lenstr == NULL || sscanf(lenstr, "%ld", &len) !=1 || len > MAXLEN )
+	{
+		printf("<P>Error in invocation.\n");
+		return 0;
+	}
+
+	// Get request
+	fgets(input, len+1, stdin);
+	data = strstr( input, "data=");
+	if ( index == strlen(input) ) {
+		printf("<P>Error in strstr().\n");
+		return -1;
+	}
+	data += EXTRA;
+	memcpy( clientID, data, MyDNSSEC_CLIENT_ID_64_LEN );
+	clientID[MyDNSSEC_CLIENT_ID_64_LEN] = '\0';
+	data += MyDNSSEC_CLIENT_ID_64_LEN;
+
+	// Decode message to binary
+	datalen = strlen(data);
+	retstatus = base64_decode_ctx(NULL, data, datalen, out, &outlen);
+	free(decrypted);
+	if ( !retstatus ) {
+		printf("<P>Error in base64_decode().%u\n", outlen);
+		return -1;
+	}
+
+	// Get AES key and IV for the client
+	retstatus = getClientData( clientID, aesKey, aesCbcIv );
+	if ( !retstatus ) {
+	  printf("<P>Error in getClientData().\n");
+	  return -1;
+	}
+
+	// Decrypt message
+	length = strlen(data);
+	decrypted = decryptMessage( aesKey, aesCbcIv, saltLen, data, &length);
+	if ( decrypted == NULL ) {
+	  printf("<P>Error in decryptMessage().\n");
+	  return -1;
+	}
+	data = decrypted;
+
+	// Do DNS query and get response
+	retstatus = do_dns_query(out, outlen, response, &reslen);
+	if ( !retstatus ) {
+		printf("<P>Error in do_dns_query().\n");
+		return -1;
+	}
+
+	// Encrypt response
+	length = reslen;
+	encrypted = encryptMessage( aesKey, aesCbcIv, response, &length, &saltLen );
+	if ( encrypted == NULL ) {
+	  printf("<P>Error in encryptMessage().\n");
+	  return -1;
+	}
+
+	// Build message
+	datalen = MyDNSSEC_SALT_LEN + reslen;
+	data = (char *)malloc( datalen );
+	memcpy( data, &saltLen, MyDNSSEC_SALT_LEN );
+	memcpy( &data[MyDNSSEC_SALT_LEN], encrypted, reslen );
+	free(encrypted);
+
+	// Encode message in base 64
+	outlen = sizeof(out);
+	base64_encode(data, datalen, out, outlen);
+	free(data);
+	outlen = strlen(out);
+	if ( outlen < ( datalen * 8 / 6 ) ) {
+		printf("<P>Error in base64_encode().\n");
+		return -1;
+	}
+
+	// Send back the encoded and encrypted response
+	printf( "<![CDATA[%s]]>", out );
+
+	return 0;
+}

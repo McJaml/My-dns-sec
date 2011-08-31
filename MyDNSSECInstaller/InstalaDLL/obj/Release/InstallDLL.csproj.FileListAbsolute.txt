@@ -1,0 +1,16 @@
+C:\Documents and Settings\Lirida\My Documents\Visual Studio 2008\Projects\MyDNSSECInstaller\InstalaDLL\bin\Release\InstalaDLL.exe
+C:\Documents and Settings\Lirida\My Documents\Visual Studio 2008\Projects\MyDNSSECInstaller\InstalaDLL\bin\Release\InstalaDLL.pdb
+C:\Documents and Settings\Lirida\My Documents\Visual Studio 2008\Projects\MyDNSSECInstaller\InstalaDLL\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\Lirida\My Documents\Visual Studio 2008\Projects\MyDNSSECInstaller\InstalaDLL\obj\Release\ÌnstalaDLL.Form1.resources
+C:\Documents and Settings\Lirida\My Documents\Visual Studio 2008\Projects\MyDNSSECInstaller\InstalaDLL\obj\Release\InstalaDLL.Properties.Resources.resources
+C:\Documents and Settings\Lirida\My Documents\Visual Studio 2008\Projects\MyDNSSECInstaller\InstalaDLL\obj\Release\InstallDLL.csproj.GenerateResource.Cache
+C:\Documents and Settings\Lirida\My Documents\Visual Studio 2008\Projects\MyDNSSECInstaller\InstalaDLL\obj\Release\InstalaDLL.exe
+C:\Documents and Settings\Lirida\My Documents\Visual Studio 2008\Projects\MyDNSSECInstaller\InstalaDLL\obj\Release\InstalaDLL.pdb
+C:\dev\mydnssec\MyDNSSECInstaller\InstalaDLL\bin\Release\InstalaDLL.exe
+C:\dev\mydnssec\MyDNSSECInstaller\InstalaDLL\bin\Release\InstalaDLL.pdb
+C:\dev\mydnssec\MyDNSSECInstaller\InstalaDLL\obj\Release\ResolveAssemblyReference.cache
+C:\dev\mydnssec\MyDNSSECInstaller\InstalaDLL\obj\Release\ÌnstalaDLL.Form1.resources
+C:\dev\mydnssec\MyDNSSECInstaller\InstalaDLL\obj\Release\InstalaDLL.Properties.Resources.resources
+C:\dev\mydnssec\MyDNSSECInstaller\InstalaDLL\obj\Release\InstallDLL.csproj.GenerateResource.Cache
+C:\dev\mydnssec\MyDNSSECInstaller\InstalaDLL\obj\Release\InstalaDLL.exe
+C:\dev\mydnssec\MyDNSSECInstaller\InstalaDLL\obj\Release\InstalaDLL.pdb

@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MyDNSSECInstaller", "MyDNSSECInstaller\MyDNSSECInstaller.vdproj", "{A37282FD-9599-48E7-8471-303610180875}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnInstallDLL", "UnInstallDLL\UnInstallDLL.csproj", "{8697C168-6A01-4A3A-B155-B8568C425F73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstallDLL", "InstalaDLL\InstallDLL.csproj", "{699FDF12-F999-46D5-B044-C795A9E73B66}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A37282FD-9599-48E7-8471-303610180875}.Debug|Any CPU.ActiveCfg = Debug
+		{A37282FD-9599-48E7-8471-303610180875}.Debug|Any CPU.Build.0 = Debug
+		{A37282FD-9599-48E7-8471-303610180875}.Release|Any CPU.ActiveCfg = Release
+		{A37282FD-9599-48E7-8471-303610180875}.Release|Any CPU.Build.0 = Release
+		{8697C168-6A01-4A3A-B155-B8568C425F73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8697C168-6A01-4A3A-B155-B8568C425F73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8697C168-6A01-4A3A-B155-B8568C425F73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8697C168-6A01-4A3A-B155-B8568C425F73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{699FDF12-F999-46D5-B044-C795A9E73B66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{699FDF12-F999-46D5-B044-C795A9E73B66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{699FDF12-F999-46D5-B044-C795A9E73B66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{699FDF12-F999-46D5-B044-C795A9E73B66}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
